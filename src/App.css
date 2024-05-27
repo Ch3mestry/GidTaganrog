@@ -1,0 +1,93 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+input[type="checkbox"] {
+  width: 0.951vw;
+  height: 0.951vw;
+}
+
+input[type="radio"] {
+  width: 0.951vw;
+  height: 0.951vw;
+}
+
+.trash_sensor {
+  display: flex;
+  gap: 0.732vw;
+  height: 100vh;
+}
+
+.input_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.table {
+  min-width: 50vw;
+}
+
+.map {
+  width: 40vw;
+  /* height: 47.8vw; */
+  height: 100vh;
+}
+
+table {
+  border-collapse: collapse; /* Убирает двойные границы */
+}
+
+th,
+td {
+  font-size: 1.171875vw;
+  border: 0.073vw solid #dddddd; /* Стилизуем границы ячеек */
+  padding: calc(1.171875vw / 2); /* Добавляем отступ внутри ячеек */
+  text-align: left; /* Выравниваем текст по левому краю */
+}
+
+th {
+  background-color: #f2f2f2; /* Стилизация фона заголовков */
+}
+
+/* Стилизация горизонтальных линий */
+tr {
+  border-bottom: 0.073vw solid #dddddd;
+}
+
+/* Стилизация вертикальных линий */
+td + td {
+  border-left: 0.073vw solid #dddddd;
+}
+
+.selected {
+  background-color: rgba(33, 85, 85, 0.338);
+}
+
+.pagination {
+  justify-content: center;
+  display: flex;
+  gap: 0.32vw;
+  padding: 1.464vw;
+}
+
+.pagination_button {
+  width: 2.196vw;
+  height: 2.196vw;
+  font-size: 1.171875vw;
+  border: 0.073vw solid green;
+  border-radius: 50%;
+}
+
+@media (width <= 768px) {
+  .trash_sensor {
+    flex-flow: column;
+  }
+  .map {
+    width: 100vw;
+  }
+  table {
+    width: 100vw;
+  }
+}
