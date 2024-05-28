@@ -72,13 +72,13 @@ function App() {
     const markersAtSameLocation = data.filter(
       (marker) => marker.lat === lat && marker.lng === lng
     );
+    // Название: ${marker.name}<br>
+    // Адрес: ${marker.address}<br>
 
     const markerDetails = markersAtSameLocation
       .map(
         (marker) => `
         ID: ${marker.id}<br>
-        Название: ${marker.name}<br>
-        Адрес: ${marker.address}<br>
         Заполненность: ${marker.percent}% <br>
         Уровень батареи: ${marker.batLevel}%<br>
         Время обновления: ${marker.timeAt}<br><br>
@@ -86,7 +86,13 @@ function App() {
       )
       .join("");
 
-    return markerDetails;
+    // return markerDetails;
+    const locationName = markersAtSameLocation.length
+      ? `<strong>Название: ${markersAtSameLocation[0].name}</strong><br>
+      <strong>Адрес ${markersAtSameLocation[0].address}</strong><br><br>`
+      : "";
+
+    return `${locationName}${markerDetails}`;
   };
 
   if (loading) return <p>Loading...</p>;
@@ -99,7 +105,7 @@ function App() {
           <thead>
             <tr>
               <th>
-                <input type="radio" defaultChecked />
+                <input type="radio" className="input_center" defaultChecked />
               </th>
               <th>ID</th>
               <th>Название</th>
