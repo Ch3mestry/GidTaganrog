@@ -17,7 +17,7 @@ body {
 
 .sidebar {
   background-color: rgba(45, 49, 57, 1);
-  width: 30.556vw;
+  width: 32vw;
   height: 92vh;
   border-radius: 2.222vw;
   margin: 1.806vw 0 1.806vw 1.806vw;
@@ -53,6 +53,7 @@ body {
 .list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   overflow-x: hidden;
   padding: 0 0.875vw;
   row-gap: 2vw;
