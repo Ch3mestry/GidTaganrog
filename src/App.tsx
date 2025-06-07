@@ -3,7 +3,6 @@ import axios from "axios";
 import { YMaps, Map, Placemark } from "@pbe/react-yandex-maps";
 import { useEffect, useState } from "react";
 
-// Интерфейс для данных о достопримечательностях
 interface Sight {
   id: number;
   name: string;
@@ -14,7 +13,6 @@ interface Sight {
   type: string;
 }
 
-// Расширение типов для Placemark
 declare module "@pbe/react-yandex-maps" {
   interface PlacemarkProps {
     onMouseEnter?: (e: any) => void;
@@ -23,7 +21,6 @@ declare module "@pbe/react-yandex-maps" {
 }
 
 function App() {
-  // Состояния
   const [data, setData] = useState<Sight[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
@@ -40,9 +37,11 @@ function App() {
     { id: 3, title: "Музеи", color: "green" },
     { id: 4, title: "Памятники и скульптуры", color: "yellow" },
     { id: 5, title: "Парки и природные объекты", color: "orange" },
-    { id: 6, title: "Развлекательные объекты", color: "violet" },
+    { id: 6, title: "Развлечения", color: "violet" },
     { id: 7, title: "Религиозные объекты", color: "black" },
     { id: 8, title: "Театры", color: "purple" },
+    { id: 9, title: "Спортивные арены", color: "white" },
+    { id: 10, title: "Кафе, рестораны и бары", color: "lightgray" },
   ];
 
   useEffect(() => {
@@ -81,7 +80,6 @@ function App() {
       maximumAge: 0,
     };
 
-    // Запрашиваем геолокацию только после взаимодействия пользователя
     const handleFirstInteraction = () => {
       navigator.geolocation.getCurrentPosition(
         successHandler,
@@ -98,7 +96,6 @@ function App() {
     };
   }, []);
 
-  // Получение данных
   useEffect(() => {
     axios
       .get<Sight[]>("http://127.0.0.1:5000/sights")
@@ -112,7 +109,6 @@ function App() {
       });
   }, []);
 
-  // Открытие баллуна на карте
   useEffect(() => {
     if (map && openBalloon) {
       const { latitude, longitude } = openBalloon;
